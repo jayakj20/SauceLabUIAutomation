@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace SauceLabUIAutomation
 {
-    public class Tests
+    public class LoginPageTests
     {
         [SetUp]
         public void Setup()
