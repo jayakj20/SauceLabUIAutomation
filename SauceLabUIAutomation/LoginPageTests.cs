@@ -8,27 +8,12 @@ namespace SauceLabUIAutomation
 {
     [TestFixture]
     [Category("Login Page Tests")]
-    public class LoginPageTests
+    public class LoginPageTests : BaseTests
     {
-        //Test Class Properties
-        public IWebDriver Driver { get; set; }
-        private ExtentTest test { get; set; }
-        ExtentReports extent = null;
+        //LoginPageTest Class Properties
 
-        [OneTimeSetUp]
-        public void ExtentStart ()
-        {
-            extent = new ExtentReports();
-            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\jjayakumar\Desktop\Automation Projects\SauceLabUIAutomation\SauceLabUIAutomation\TestExecutionResults\LoginPageTestResults.html");
-            extent.AttachReporter(htmlReporter);
-        }
 
-        [OneTimeTearDown]
-        public void ExtentClose()
-        {
-            extent.Flush();
-        }
-
+        //Test Cases
         [Description("Login with Standard User - Correct Username/Password")]
         [Property("Author", "Jason Jayakumar")]
         [Test]
