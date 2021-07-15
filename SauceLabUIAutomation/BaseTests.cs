@@ -2,17 +2,14 @@
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SauceLabUIAutomation
 {
     public class BaseTests
     {
         protected IWebDriver Driver { get; set; }
+        protected LoginPage loginPage { get; set; }
         protected ExtentTest test { get; set; }
         protected ExtentReports extent = null;
 
