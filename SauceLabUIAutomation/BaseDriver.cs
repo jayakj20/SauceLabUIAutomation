@@ -16,6 +16,10 @@ namespace SauceLabUIAutomation
             Driver = new ChromeDriver();
         }
 
+        public void QuitDriver()
+        {
+            Driver.Quit();
+        }
 
     }
 }

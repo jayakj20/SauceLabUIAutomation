@@ -9,14 +9,14 @@ namespace SauceLabUIAutomation
         private IWebElement PasswordField => Driver.FindElement(By.Id("password"));
         private IWebElement LogintBtn => Driver.FindElement(By.Id("login-button"));
         private IWebElement ErrorMessage => Driver.FindElement(By.ClassName("error-message-container"));
-        public LoginPage(IWebDriver driver) : base (driver)
-        { }
-        
+        public LoginPage(IWebDriver driver) : base(driver)
+        {}
         public void GoTo()
         {
             InitChromeDriver();
             Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
+
         public void EnterCredsAndLogin(string userName, string password)
         {
             UserNameField.SendKeys(userName);
