@@ -5,13 +5,13 @@ using OpenQA.Selenium;
 
 namespace SauceLabUIAutomation
 {
-    public class BaseTests 
-    {
+    public class BaseHomePageTests { 
+        public LoginPage LoginPage { get; private set; }
         public IWebDriver Driver { get; private set; }
-        protected LoginPage LoginPage { get; set; }
+        public HomePage HomePage { get; private set; }
         protected ExtentTest test { get; set; }
         protected ExtentReports extent = null;
-    
+
         // Initializing the Extent Reporter object
         [OneTimeSetUp]
         public void ExtentStart()
@@ -26,6 +26,8 @@ namespace SauceLabUIAutomation
         {
             LoginPage = new LoginPage(Driver);
             LoginPage.GoTo();
+            LoginPage.EnterCredsAndLogin("standard_user", "secret_sauce");
+            HomePage = LoginPage.ValidLogin(LoginPage.LoginStatus());
         }
 
         //Closing the Extent Reporter Instance
@@ -34,5 +36,7 @@ namespace SauceLabUIAutomation
         {
             extent.Flush();
         }
+
+
     }
 }

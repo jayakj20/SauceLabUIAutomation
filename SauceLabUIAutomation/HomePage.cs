@@ -9,13 +9,13 @@ namespace SauceLabUIAutomation
     {
         private IWebElement FilterDropDown => Driver.FindElement(By.ClassName("product_sort_container"));
         private IList<IWebElement> ItemNames => Driver.FindElements(By.ClassName("inventory_item_name"));
-        private IList<IWebElement> ItemPrices => Driver.FindElements(By.ClassName("Inventory_item_price"));
+        private IList<IWebElement> ItemPrices => Driver.FindElements(By.ClassName("inventory_item_price"));
         public HomePage(IWebDriver driver) : base(driver)
         {}
 
         public void SelectDropdownOption(int index)
         {
-            SelectElement select = new SelectElement(FilterDropDown);
+            SelectElement select = new(FilterDropDown);
             select.SelectByIndex(index);
 
         }
@@ -30,9 +30,9 @@ namespace SauceLabUIAutomation
 
         }
 
-        public bool IsItemsOrderedbyPrice()
+        public bool IsItemsOrderedbyPriceLowToHigh()
         {
-            if (ItemNames[0].GetAttribute("innerText").Equals("$7.99") && ItemNames[ItemNames.Count - 1].GetAttribute("innerText").Equals("$49.99")) { 
+            if (ItemPrices[0].GetAttribute("innerText").Equals("$7.99") && ItemPrices[ItemPrices.Count - 1].GetAttribute("innerText").Equals("$49.99")) { 
                 return true;
             }
             else return false;
