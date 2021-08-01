@@ -5,7 +5,7 @@ namespace SauceLabUIAutomation
 {
     [TestFixture]
     [Category("Login Page Tests")]
-    public class LoginPageTests : BaseTests
+    public class LoginPageTests : BaseLoginPageTests
     { 
         /*
         Test Cases

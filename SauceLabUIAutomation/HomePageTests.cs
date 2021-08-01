@@ -45,12 +45,12 @@ namespace SauceLabUIAutomation
             test.Log(Status.Info, "Navigate to Sauce Demo Login Page");
             test.Log(Status.Info, "Entered Username:standard_user and Password:secret_sauce");
             HomePage.SelectDropdownOption(2);
-            test.Log(Status.Info, "Third Dropdown option selected (Price Low to High");
+            test.Log(Status.Info, "Third Dropdown option selected (Price Low to Hig)");
             Assert.That(HomePage.IsItemsOrderedbyPriceLowToHigh());
             test.Log(Status.Pass, "Items are Ordered price(Low to high)");
         }
 
-        [Description("HomePage_FilterDropDown_Price(High-Low")]
+        [Description("HomePage_FilterDropDown_Price(High to Low")]
         [Property("Author", "Jason Jayakumar")]
         [Test]
         public void FilterPriceHighToLowTest()
@@ -61,7 +61,7 @@ namespace SauceLabUIAutomation
             HomePage.SelectDropdownOption(3);
             test.Log(Status.Info, "Third Dropdown option selected (Price Low to High");
             Assert.That(!HomePage.IsItemsOrderedbyPriceLowToHigh());
-            test.Log(Status.Pass, "Items are Ordered price(Low to high)");
+            test.Log(Status.Pass, "Items are Ordered price(High to Low)");
         }
 
     }
