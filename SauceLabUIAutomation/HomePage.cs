@@ -10,6 +10,14 @@ namespace SauceLabUIAutomation
         private IWebElement FilterDropDown => Driver.FindElement(By.ClassName("product_sort_container"));
         private IList<IWebElement> ItemNames => Driver.FindElements(By.ClassName("inventory_item_name"));
         private IList<IWebElement> ItemPrices => Driver.FindElements(By.ClassName("inventory_item_price"));
+        private IWebElement HamburgerMenuBtn => Driver.FindElement(By.Id("react-burger-menu-btn"));
+        private IWebElement About => Driver.FindElement(By.Id("about_sidebar_link"));
+        private IWebElement Logout => Driver.FindElement(By.Id("logout_sidebar_link"));
+        private IWebElement BackPackAddBtn => Driver.FindElement(By.Id("add-to-cart-sauce-labs-backpack"));
+        private IWebElement ResetAppStateBtn => Driver.FindElement(By.Id("reset_sidebar_link"));
+        public IWebElement RemoveBtn => Driver.FindElement(By.Id("remove-sauce-labs-backpack"));
+        public IWebElement ShoppingCartBtn => Driver.FindElement(By.ClassName("shopping_cart_link"));
+
         public HomePage(IWebDriver driver) : base(driver)
         {}
 
@@ -26,17 +34,53 @@ namespace SauceLabUIAutomation
             {
                 return true;
             }
-            else return false;           
+            else return false;
 
         }
 
         public bool IsItemsOrderedbyPriceLowToHigh()
         {
-            if (ItemPrices[0].GetAttribute("innerText").Equals("$7.99") && ItemPrices[ItemPrices.Count - 1].GetAttribute("innerText").Equals("$49.99")) { 
+            if (ItemPrices[0].GetAttribute("innerText").Equals("$7.99") && ItemPrices[ItemPrices.Count - 1].GetAttribute("innerText").Equals("$49.99"))
+            {
                 return true;
             }
             else return false;
         }
 
+        public void ClickHamburgerMenu()
+        {
+            HamburgerMenuBtn.Click();
+        }
+
+        public string SelectAbout ()
+        {
+            About.Click();
+            return Driver.Title;
+        }
+
+        public string SelectLogout()
+        {
+            Logout.Click();
+            return Driver.Title;
+        }
+
+        public bool SelectResetAppState()
+        {
+            BackPackAddBtn.Click();
+            ResetAppStateBtn.Click();
+        // ADD A WAIT
+            try
+            {
+                if (RemoveBtn.Displayed || ShoppingCartBtn.GetAttribute("innerText").Equals("1"))
+                {
+                    return false;
+                }
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return true;
+
+        }
     }
 }

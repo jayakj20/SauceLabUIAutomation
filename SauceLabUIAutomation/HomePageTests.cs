@@ -64,5 +64,47 @@ namespace SauceLabUIAutomation
             test.Log(Status.Pass, "Items are Ordered price(High to Low)");
         }
 
+        [Description("HomePage_HamburgerMenu_About")]
+        [Property("Author", "Jason Jayakumar")]
+        [Test]
+        public void AboutPageTest()
+        {
+            test = extent.CreateTest("Hamburger Menu - About Page").Info("Start of Test");
+            test.Log(Status.Info, "Navigate to Sauce Demo Login Page");
+            test.Log(Status.Info, "Entered Username:standard_user and Password:secret_sauce");
+            HomePage.ClickHamburgerMenu();
+            test.Log(Status.Info, "Hamburger Menu clicked");
+            Assert.That(HomePage.SelectAbout(), Is.EqualTo ("Cross Browser Testing, Selenium Testing, Mobile Testing | Sauce Labs"));
+            test.Log(Status.Pass, "Navigated to About page");
+        }
+
+        [Description("HomePage_HamburgerMenu_Logout")]
+        [Property("Author", "Jason Jayakumar")]
+        [Test]
+        public void LogoutTest()
+        {
+            test = extent.CreateTest("Hamburger Menu - Logout").Info("Start of Test");
+            test.Log(Status.Info, "Navigate to Sauce Demo Login Page");
+            test.Log(Status.Info, "Entered Username:standard_user and Password:secret_sauce");
+            HomePage.ClickHamburgerMenu();
+            test.Log(Status.Info, "Hamburger Menu clicked");
+            Assert.That(HomePage.SelectLogout(), Is.EqualTo("Swag Labs"));
+            test.Log(Status.Pass, "Successfully Logged out");
+        }
+
+        [Description("HomePage_HamburgerMenu_ResetAppState")]
+        [Property("Author", "Jason Jayakumar")]
+        [Test]
+        public void ResetAppStateTest()
+        {
+            test = extent.CreateTest("Hamburger Menu - Logout").Info("Start of Test");
+            test.Log(Status.Info, "Navigate to Sauce Demo Login Page");
+            test.Log(Status.Info, "Entered Username:standard_user and Password:secret_sauce");
+            HomePage.ClickHamburgerMenu();
+            test.Log(Status.Info, "Hamburger Menu clicked");
+            Assert.That(HomePage.SelectResetAppState());
+            test.Log(Status.Pass, "Default App State restored");
+        }
+
     }
 }
