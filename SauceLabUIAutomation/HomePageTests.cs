@@ -100,11 +100,12 @@ namespace SauceLabUIAutomation
             test = extent.CreateTest("Hamburger Menu - Logout").Info("Start of Test");
             test.Log(Status.Info, "Navigate to Sauce Demo Login Page");
             test.Log(Status.Info, "Entered Username:standard_user and Password:secret_sauce");
+            HomePage.AddItemToCart(0);
+            test.Log(Status.Info, "First Item is added to cart");
             HomePage.ClickHamburgerMenu();
             test.Log(Status.Info, "Hamburger Menu clicked");
-            Assert.That(HomePage.SelectResetAppState());
+            Assert.That(HomePage.ResetAppState());
             test.Log(Status.Pass, "Default App State restored");
         }
-
     }
 }

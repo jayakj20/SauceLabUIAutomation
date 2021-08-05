@@ -17,6 +17,7 @@ namespace SauceLabUIAutomation
         private IWebElement ResetAppStateBtn => Driver.FindElement(By.Id("reset_sidebar_link"));
         public IWebElement RemoveBtn => Driver.FindElement(By.Id("remove-sauce-labs-backpack"));
         public IWebElement ShoppingCartBtn => Driver.FindElement(By.ClassName("shopping_cart_link"));
+        public IList<IWebElement> AddToCartBtns => Driver.FindElements(By.ClassName("btn_inventory"));
 
         public HomePage(IWebDriver driver) : base(driver)
         {}
@@ -50,6 +51,8 @@ namespace SauceLabUIAutomation
         public void ClickHamburgerMenu()
         {
             HamburgerMenuBtn.Click();
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(About));
         }
 
         public string SelectAbout ()
@@ -64,11 +67,9 @@ namespace SauceLabUIAutomation
             return Driver.Title;
         }
 
-        public bool SelectResetAppState()
+        public bool ResetAppState()
         {
-            BackPackAddBtn.Click();
             ResetAppStateBtn.Click();
-        // ADD A WAIT
             try
             {
                 if (RemoveBtn.Displayed || ShoppingCartBtn.GetAttribute("innerText").Equals("1"))
@@ -82,5 +83,17 @@ namespace SauceLabUIAutomation
             return true;
 
         }
+
+        public void AddItemToCart (int itemIndex)
+        {
+            AddToCartBtns[itemIndex].Click();
+        }
+
+        public CartPage ClickCartBtn()
+        {
+            ShoppingCartBtn.Click();
+            return new CartPage(Driver);
+        }
+
     }
 }
