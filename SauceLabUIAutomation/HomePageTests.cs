@@ -92,6 +92,7 @@ namespace SauceLabUIAutomation
             test.Log(Status.Pass, "Successfully Logged out");
         }
 
+        //Will always fail as there is a bug with 1 of the buttons, when app state is being reset this button does not reset its state.
         [Description("HomePage_HamburgerMenu_ResetAppState")]
         [Property("Author", "Jason Jayakumar")]
         [Test]

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace SauceLabUIAutomation
@@ -9,16 +10,6 @@ namespace SauceLabUIAutomation
         public BaseDriver(IWebDriver driver)
         {
             Driver = driver;
-        }
-
-        public void InitChromeDriver ()
-        {
-            Driver = new ChromeDriver();
-        }
-
-        public void QuitDriver()
-        {
-            Driver.Quit();
         }
 
     }

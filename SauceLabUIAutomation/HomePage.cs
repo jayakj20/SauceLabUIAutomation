@@ -91,7 +91,16 @@ namespace SauceLabUIAutomation
 
         public CartPage ClickCartBtn()
         {
-            ShoppingCartBtn.Click();
+            try
+            {
+                ShoppingCartBtn.Click();
+            }
+          
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
             return new CartPage(Driver);
         }
 

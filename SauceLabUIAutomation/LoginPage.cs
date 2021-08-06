@@ -13,7 +13,6 @@ namespace SauceLabUIAutomation
         {}
         public void GoTo()
         {
-            InitChromeDriver();
             Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
 
