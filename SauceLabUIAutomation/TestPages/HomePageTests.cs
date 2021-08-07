@@ -1,8 +1,8 @@
 ﻿using AventStack.ExtentReports;
 using NUnit.Framework;
+using SauceLabUIAutomation.BasePages;
 
-
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.TestPages
 {
     [TestFixture]
     [Category("Home Page Tests")]

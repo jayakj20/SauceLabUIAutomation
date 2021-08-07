@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
+using SauceLabUIAutomation.BasePages;
 using System;
 using System.Collections.Generic;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.PageObjects
 {
     public class OverViewPage : BaseDriver
     {

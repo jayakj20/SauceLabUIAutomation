@@ -1,9 +1,10 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SauceLabUIAutomation.BasePages;
 using System;
 using System.Collections.Generic;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.PageObjects
 {
     public class HomePage : BaseDriver
     {
@@ -15,9 +16,9 @@ namespace SauceLabUIAutomation
         private IWebElement Logout => Driver.FindElement(By.Id("logout_sidebar_link"));
         private IWebElement BackPackAddBtn => Driver.FindElement(By.Id("add-to-cart-sauce-labs-backpack"));
         private IWebElement ResetAppStateBtn => Driver.FindElement(By.Id("reset_sidebar_link"));
-        public IWebElement RemoveBtn => Driver.FindElement(By.Id("remove-sauce-labs-backpack"));
-        public IWebElement ShoppingCartBtn => Driver.FindElement(By.ClassName("shopping_cart_link"));
-        public IList<IWebElement> AddToCartBtns => Driver.FindElements(By.ClassName("btn_inventory"));
+        private IWebElement RemoveBtn => Driver.FindElement(By.Id("remove-sauce-labs-backpack"));
+        private IWebElement ShoppingCartBtn => Driver.FindElement(By.ClassName("shopping_cart_link"));
+        private IList<IWebElement> AddToCartBtns => Driver.FindElements(By.ClassName("btn_inventory"));
 
         public HomePage(IWebDriver driver) : base(driver)
         {}
@@ -58,6 +59,8 @@ namespace SauceLabUIAutomation
         public string SelectAbout ()
         {
             About.Click();
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//span[text() = 'Try it free']")));
             return Driver.Title;
         }
 

@@ -1,8 +1,9 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SauceLabUIAutomation.PageObjects;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.BasePages
 {
     public class BaseHomePageTests : BaseExtentReporter
     

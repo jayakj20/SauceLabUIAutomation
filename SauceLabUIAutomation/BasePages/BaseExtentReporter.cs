@@ -1,8 +1,9 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
+using System;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.BasePages
 {
    public class BaseExtentReporter
     {

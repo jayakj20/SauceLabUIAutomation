@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.BasePages
 {
     public class BaseDriver
     {

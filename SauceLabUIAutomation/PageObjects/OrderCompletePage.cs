@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
+using SauceLabUIAutomation.BasePages;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.PageObjects
 {
     public class OrderCompletePage : BaseDriver
     {

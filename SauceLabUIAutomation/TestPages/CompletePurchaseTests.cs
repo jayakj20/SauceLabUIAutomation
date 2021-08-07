@@ -1,8 +1,10 @@
 ﻿using AventStack.ExtentReports;
 using NUnit.Framework;
+using SauceLabUIAutomation.BasePages;
+using SauceLabUIAutomation.PageObjects;
 using System.Threading;
 
-namespace SauceLabUIAutomation
+namespace SauceLabUIAutomation.TestPages
 {
     public class CompletePurchaseTests : BaseHomePageTests
     {

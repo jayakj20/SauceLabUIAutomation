@@ -1,7 +1,9 @@
 ﻿using OpenQA.Selenium;
+using SauceLabUIAutomation.BasePages;
 using System;
 
-namespace SauceLabUIAutomation
+
+namespace SauceLabUIAutomation.PageObjects
 {
     public class CartPage : BaseDriver
     {
