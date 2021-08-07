@@ -14,6 +14,8 @@ namespace SauceLabUIAutomation
         public void GoTo()
         {
             Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            Driver.Manage().Window.Maximize();
+
         }
 
         public void EnterCredsAndLogin(string userName, string password)

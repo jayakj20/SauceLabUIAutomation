@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace SauceLabUIAutomation
 {
@@ -13,10 +14,17 @@ namespace SauceLabUIAutomation
         [SetUp]
         public void DoForEveryTest()
         {
+            Driver = new ChromeDriver();
             LoginPage = new LoginPage(Driver);
             LoginPage.GoTo();
             LoginPage.EnterCredsAndLogin("standard_user", "secret_sauce");
             HomePage = LoginPage.ValidLogin(LoginPage.LoginStatus());
+        }
+
+        [TearDown]
+        public void DoAfterEveryTest()
+        {
+            Driver.Quit();
         }
 
 

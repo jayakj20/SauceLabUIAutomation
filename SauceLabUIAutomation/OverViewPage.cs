@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
+using System.Collections.Generic;
 
 namespace SauceLabUIAutomation
 {
@@ -8,12 +9,12 @@ namespace SauceLabUIAutomation
         public OverViewPage(IWebDriver driver) : base(driver)
         {}
 
-        private IWebElement CheckOutItemName => Driver.FindElement(By.ClassName("inventory_item_name"));
+        private IList <IWebElement> CheckOutItemName => Driver.FindElements(By.ClassName("inventory_item_name"));
         private IWebElement FinishBtn => Driver.FindElement(By.Id("finish"));
 
-        public string GetCheckOutItem()
+        public string GetCheckOutItem(int itemIndex)
         {
-            return CheckOutItemName.GetAttribute("innerText");
+            return CheckOutItemName[itemIndex].GetAttribute("innerText");
         }
 
         public OrderCompletePage Finish()

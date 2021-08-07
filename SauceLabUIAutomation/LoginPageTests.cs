@@ -7,11 +7,6 @@ namespace SauceLabUIAutomation
     [Category("Login Page Tests")]
     public class LoginPageTests : BaseLoginPageTests
     { 
-        /*
-        Test Cases
-        Only 4 login scenarios are coverred here. The reason being, there are only 4 unique paths on this website that
-        that will show a different result and the 4 test cases below encapsulate all these results.
-        */
 
         [Description("UserLogin_ValidUsername_ValidPassword")]
         [Property("Author", "Jason Jayakumar")]
